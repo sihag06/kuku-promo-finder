@@ -1,0 +1,65 @@
+EPISODE NUMBER: Episode 1
+EPISODE LOGLINE: A baker is accused of theft at the market and her brother vanishes.
+CONTINUITY NOTES: Synthetic test episode. Not Kuku content.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: EXT. MARKET – DAY
+Scene start: 00:00.00
+Scene end: 00:20.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:05.00)
+Wide shot of a crowded market.
+
+**ACTION:**
+Start: (00:01.00) | End: (00:03.00)
+A merchant slaps the baker across the face.
+
+**MERCHANT (Furious, Shouting):**
+Start: (00:03.20) | End: (00:05.00)
+"Thief!"
+
+**CAMERA:**
+Start: (00:05.00) | End: (00:12.00)
+Close-up on the baker.
+
+**BAKER (Solemn, O.S.):**
+Start: (00:05.50) | End: (00:08.00)
+"I took nothing.
+You know that."
+
+**BAKER (O.S.) (Continuing):**
+Start: (00:08.20) | End: (00:09.00)
+"Nothing."
+
+**BROKEN BLOCK:**
+This block has no timing and must become a warning.
+
+**CAMERA:**
+Start: (00:12.00) | End: (00:20.00)
+Push-in on the baker.
+
+**SOUND FX:**
+Start: (00:18.00) | End: (00:20.00)
+A gasp from the crowd.
+
+SCENE 02
+Scene heading: INT. BAKERY – NIGHT
+Scene start: 00:20.00
+Scene end: 00:30.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:20.00) | End: (00:30.00)
+The bakery is empty.
+
+**BAKER (V.O.):**
+Start: (00:21.00) | End: (00:24.00)
+"Where is my brother?"
+
+--- SCRIPT END ---

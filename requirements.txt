@@ -1,0 +1,10 @@
+pydantic>=2.6
+pyyaml>=6.0
+pytest>=8.0
+# LLM vendors: install all three; only the one(s) with a key are used
+openai>=1.40
+anthropic>=0.40
+google-genai>=1.0
+# app
+streamlit>=1.38
+pandas>=2.0

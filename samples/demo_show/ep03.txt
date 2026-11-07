@@ -1,0 +1,126 @@
+EPISODE NUMBER: 3
+EPISODE LOGLINE: Damien tries to buy the envelope from Mara, then threatens her mother when she refuses.
+CONTINUITY NOTES: Demo show 'The Envelope'. Original fictional content for testing, not Kuku's.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. HALDEN HOSPITAL – NIGHT
+Scene start: 00:00.00
+Scene end: 00:45.00
+
+Actions and dialogue:
+
+**CAMERA**:
+Start: (00:00.00) | End: (00:04.00)
+Medium shot framing the moment.
+
+**ACTION:**
+Start: (00:00.20) | End: (00:03.90)
+Rain hammers the hospital car park. Mara clutches the envelope under her coat.
+
+**CAMERA**:
+Start: (00:04.00) | End: (00:08.00)
+Close-up framing the moment.
+
+**DAMIEN (Smooth):**
+Start: (00:04.20) | End: (00:07.90)
+"Ten thousand dollars. Hand it over and walk away."
+
+**CAMERA**:
+Start: (00:08.00) | End: (00:11.00)
+Medium shot framing the moment.
+
+**MARA (Defiant):**
+Start: (00:08.20) | End: (00:10.90)
+"He told me to wait for the lawyer."
+
+**CAMERA**:
+Start: (00:11.00) | End: (00:15.00)
+Close-up framing the moment.
+
+**DAMIEN (Smooth):**
+Start: (00:11.20) | End: (00:14.90)
+"Fifty thousand. Enough for your mother's surgery."
+
+**CAMERA**:
+Start: (00:15.00) | End: (00:18.00)
+Medium shot framing the moment.
+
+**ACTION:**
+Start: (00:15.20) | End: (00:17.90)
+Mara hesitates, looking at the hospital windows above.
+
+**CAMERA**:
+Start: (00:18.00) | End: (00:22.00)
+Close-up framing the moment.
+
+**MARA (Firm):**
+Start: (00:18.20) | End: (00:21.90)
+"No. Whatever is in here, he wanted me to have it."
+
+**CAMERA**:
+Start: (00:22.00) | End: (00:26.00)
+Medium shot framing the moment.
+
+**DAMIEN (Menacing):**
+Start: (00:22.20) | End: (00:25.90)
+"Then let me tell you what is in room 304."
+
+**CAMERA**:
+Start: (00:26.00) | End: (00:28.00)
+Close-up framing the moment.
+
+**MARA (Horrified):**
+Start: (00:26.20) | End: (00:27.90)
+"That's my mother's room."
+
+**CAMERA**:
+Start: (00:28.00) | End: (00:32.00)
+Medium shot framing the moment.
+
+**DAMIEN (Cold):**
+Start: (00:28.20) | End: (00:31.90)
+"Her oxygen is on my hospital's bill. Bills get cancelled."
+
+**CAMERA**:
+Start: (00:32.00) | End: (00:35.00)
+Close-up framing the moment.
+
+**ACTION:**
+Start: (00:32.20) | End: (00:34.90)
+Mara rips open the envelope. A single photograph falls into a puddle.
+
+**CAMERA**:
+Start: (00:35.00) | End: (00:38.00)
+Medium shot framing the moment.
+
+**ACTION:**
+Start: (00:35.20) | End: (00:37.90)
+The photo shows a young Arthur Halden holding a baby wrapped in a hospital blanket.
+
+**CAMERA**:
+Start: (00:38.00) | End: (00:40.00)
+Close-up framing the moment.
+
+**MARA (Whispering):**
+Start: (00:38.20) | End: (00:39.90)
+"Who is this baby?"
+
+**CAMERA**:
+Start: (00:40.00) | End: (00:42.00)
+Medium shot framing the moment.
+
+**DAMIEN (Pale):**
+Start: (00:40.20) | End: (00:41.90)
+"Give me that photo."
+
+**CAMERA**:
+Start: (00:42.00) | End: (00:45.00)
+Close-up framing the moment.
+
+**SOUND FX:**
+Start: (00:42.20) | End: (00:44.90)
+Thunder cracks as the frame holds on Mara's face. Cut to black.
+
+--- SCRIPT END ---

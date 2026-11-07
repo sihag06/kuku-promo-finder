@@ -1,0 +1,124 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Promo Finder: solution doc</title>
+<style>
+  @page { size: A4; margin: 11mm 13mm 10mm 13mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 9.6pt; line-height: 1.36;
+         color: #1a1a1a; margin: 0; }
+  h1 { font-size: 14pt; margin: 0 0 1pt; letter-spacing: -0.2pt; }
+  .sub { color: #555; margin-bottom: 4pt; }
+  .links { font-size: 7.8pt; color: #333; margin-bottom: 5pt; }
+  .todo { background: #fff3b0; padding: 0 2pt; }
+  h2 { font-size: 9.6pt; margin: 6pt 0 2pt; padding-bottom: 1pt; border-bottom: 1.2pt solid #c0392b; color: #8e1b12; }
+  p { margin: 0 0 3pt; }
+  ul { margin: 0 0 3pt; padding-left: 12pt; } li { margin: 0 0 1.2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 2pt 0 4pt; font-size: 9.1pt; }
+  th, td { border: 0.5pt solid #bbb; padding: 1.6pt 4pt; text-align: left; vertical-align: top; }
+  th { background: #f1ece9; font-weight: 600; }
+  td.n { text-align: right; white-space: nowrap; }
+  .flow { font-family: Menlo, Consolas, monospace; font-size: 7.4pt; background: #f6f4f2; padding: 3pt 5pt;
+          border-left: 2pt solid #c0392b; margin: 2pt 0 4pt; white-space: pre; }
+  .key { background: #fbeae8; border-left: 2pt solid #c0392b; padding: 2.5pt 5pt; margin: 2pt 0 4pt; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 9pt; }
+  b { font-weight: 650; }
+</style></head><body>
+
+<h1>Promo Finder: finding promos in microdrama scripts</h1>
+<div class="sub">Kuku AI Generalist assignment · Problem 1 (Find the Promos) · Jayesh</div>
+<div class="links">Code: <span class="todo">github link</span> · App: <span class="todo">Streamlit link</span> ·
+Raw outputs: <span class="todo">Drive link</span> · Video: <span class="todo">Loom link</span></div>
+
+<h2>1. The problem I picked, and why</h2>
+<p>An editor watches every episode to pick promo moments, one show at a time, while new shows ship weekly. I picked
+this problem because it sits on Kuku's growth path (every promo is a paid acquisition ad), because the brief's rules make
+the output <b>checkable</b> (20–60 s, hook in 3 s, cliffhanger ending, understandable cold), and because the 50-episode
+pack let me <b>measure</b> quality instead of arguing it. The tool is meant to cut the editor's job from watching
+~100 minutes per show to reviewing a ranked shortlist, not to replace the editor.</p>
+
+<h2>2. Assumptions (where the brief was silent)</h2>
+<ul>
+<li><b>Script time = final-cut time.</b> If not, align once per episode with subtitles and apply the offset.</li>
+<li><b>Text only.</b> Visual hooks are judged from ACTION / CAMERA / SFX lines and flagged <i>visual_hook</i> for a footage check.</li>
+<li><b>A promo</b> is 1–3 hard-cut segments totalling 20–60 s; cuts only on camera changes and never mid-line.
+Cold opens (a later hook shown first) and cross-episode joins are allowed.</li>
+<li><b>Viewer:</b> a cold US scroller on TikTok/Reels/Shorts. The title already gives away the central twist, so that is fair game;
+late-arc resolutions count as spoilers. Sexual content, strong violence and threats to a child are flagged; a human decides.</li>
+<li><b>Output:</b> every valid candidate plus a posting order. The tool assists; the editor makes the final pick.</li>
+</ul>
+
+<h2>3. How it works</h2>
+<div class="flow">scripts ─► parse ─► show bible ─► signals ─► mine moments ─► assemble ─► judge ─► validate ─► rank ─► editor review
+ (.txt)    code     AI ×1/show     code      AI ×1/episode       code     AI ×1/clip    code       code     human (app)</div>
+<div class="key"><b>Design rule: the AI never writes a timestamp.</b> It points at lines by id; code turns ids into times, snaps
+cuts to camera changes and enforces every rule. Invented ids are dropped. (Why it matters: GPT-5.4, asked to pick promos
+directly, broke the 20–60 s rule in 18 of its 69 picks.)</div>
+<p><b>What I gave to AI:</b> judgement only. One call per show builds a cast list that links each character's different labels
+(the pack introduces characters by description and names them later). One call per episode lists up to 6 hooks and 6 cliffhangers.
+One call per candidate judges it <b>seeing only the clip's own lines</b>, the honest version of "makes sense on its own": it first writes
+what a stranger would understand and what confuses them, then scores hook (first 3 s), cliffhanger (last 5 s), works-cold,
+emotion, spoiler risk and ad safety. <b>What I kept as code:</b> parsing, free keyword signals (slaps, reveals, open questions,
+episode endings), building four clip shapes, all rule checks, de-duplication, cost quotas and ranking. Ranking is a readable
+weighted formula in <i>config.yaml</i> with two outputs: a <b>quality rank</b> and a <b>posting order</b> (quality + early
+episodes first, since a new viewer lands on Episode 1, + a variety rule so the top 10 is not one scene five times).
+<b>Where a human stays in:</b> a Streamlit review screen shows each clip's exact lines; the editor accepts, rejects or notes a better cut.</p>
+
+<h2>4. Scale and cost</h2>
+<table>
+<tr><th>Measured on the 50-episode pack (gpt-5-mini)</th><th>Value</th><th>Lever</th></tr>
+<tr><td>LLM calls / tokens</td><td>201 calls · 400k in / 309k out</td><td>hidden "thinking" tripled output vs my estimate → <i>reasoning: low</i></td></tr>
+<tr><td>Cost per show</td><td>$0.72 (reruns ≈ $0: every answer is cached)</td><td>judge cap (150 clips), per-episode quota, cheaper model</td></tr>
+<tr><td>Time per show</td><td>~17 min at 4 parallel calls</td><td>10+ parallel calls on a paid key</td></tr>
+<tr><td>Kuku-scale estimate</td><td>~10 shows × 60 episodes a week ≈ $9/week</td><td>self-hosted open model behind the same interface</td></tr>
+</table>
+<p><b>Model swap is one line.</b> Every call goes through one client; each stage's model is a <i>provider:model</i> string
+(OpenAI, Anthropic, Gemini, or any OpenAI-compatible server, so an API Kuku provides plugs straight in). Busy models fall
+back to alternatives, daily caps are detected, and keys pasted into the app are never stored. <b>Free tiers:</b> Gemini's free tier
+allowed only 20 requests a day for its stronger model, while one show needs ~200; a paid key is the honest requirement at volume.
+<b>Paid upgrade I would add:</b> a video-aware pass to check flagged visual hooks, and subtitle alignment for timing.</p>
+
+<h2>5. How I know it is good, and where it fails</h2>
+<p><b>References:</b> (1) <b>15 promos I picked by hand</b>, blind, before any tool output, from 15 episodes (I excluded
+Episode 1, which I had studied while designing); (2) <b>26 promos from GPT-5.4</b>, a stronger model, picked by two different
+prompts and kept only where both agreed; (3) <b>an independent blind rater</b> (GPT-5.4, shuffled clips, no tool scores) for the
+top 20, as a stand-in for human ratings I did not have time to do. Matching: <i>loose</i> = right scene, cut differently;
+<i>strict</i> = same opening within 3 s and at least half the footage.</p>
+<table>
+<tr><th></th><th>Rules only (no AI)</th><th>AI pipeline</th></tr>
+<tr><td>Promos breaking a brief rule</td><td class="n">0 / 150</td><td class="n">0 / 150</td></tr>
+<tr><td>My 15 picks found anywhere in the list (loose)</td><td class="n">9 (60%)</td><td class="n"><b>12 (80%)</b></td></tr>
+<tr><td>My picks found in the top 20 (loose)</td><td class="n">2 (13%)</td><td class="n"><b>5 (33%)</b></td></tr>
+<tr><td>Top-20 promos matching a human or GPT-5.4 pick</td><td class="n">12 / 20</td><td class="n"><b>16 / 20</b></td></tr>
+<tr><td>Blind rater (GPT-5.4): top 20 rated 4+ out of 5 · mean</td><td class="n">–</td><td class="n"><b>13/20 (65%)</b> · 3.6</td></tr>
+</table>
+<p><b>The evaluation changed the tool.</b> It exposed three real flaws, each fixed and re-measured: one score mixed "is it good"
+with "post early episodes first" (now two separate ranks); strong hooks were paired with too-early cliffhangers, giving clips
+under 20 s that were rejected (now they extend to the next unresolved line); and de-duplicating before applying quotas silently
+discarded clips (now one pass).</p>
+<p><b>Where it picks badly:</b></p>
+<ul>
+<li><b>Late-season reveals.</b> Several of my picks were payoffs (a conspiracy unmasked, a deal revealed) that the cold-viewer judge
+ranks #90–#140: it cannot tell who is who. I chose them knowing the story. This is a real disagreement between "makes sense to a
+stranger" and "big reveal"; only an A/B test of posted promos can settle it.</li>
+<li><b>Cost caps.</b> 3 of my 15 picks were never judged: only 150 clips (max 4 per episode) reach the paid judge. Raising the caps
+costs about $0.003 per extra clip, a choice for the editor.</li>
+<li><b>Exact cuts rarely match</b> (0 strict matches in the top 20): the tool aims for ~35 s clips; mine average ~47 s and hold longer on
+reaction shots.</li>
+<li><b>Without AI it fails badly:</b> the rules-only mode's #1 "cliffhanger" was a happy, resolved ending, because it ended an episode
+with fading music. The AI judge exists to catch exactly this.</li>
+<li><b>Order inside the top 20 is not reliable.</b> The rater agrees the shortlist is mostly good, but its order and the tool's
+barely relate (Spearman ≈ −0.2 on 20 clips, i.e. no signal). The tool is good at <i>what</i> gets shortlisted, not at ranking
+near-equals, which is why an editor reviews the shortlist instead of auto-posting #1.</li>
+<li><b>Stitched clips are the weakest.</b> The rater's lowest scores went to clips needing backstory and to cold-open /
+cross-episode joins whose jump "feels disconnected"; next step: penalise jumps that change scene or cast.</li>
+<li><b>Text is not video:</b> a written slap may play weak on screen, so visual hooks are flagged, not trusted.</li>
+</ul>
+<p><b>How I would know it worked at Kuku:</b> the editor acceptance rate of the top 10 (logged in the app), minutes saved per show,
+and, for posted promos, 3-second hold rate, click-through and install-to-Episode-1 conversion against editor-picked promos in an A/B test.</p>
+
+<h2>6. AI tools I used, and where they got it wrong</h2>
+<p><b>Claude</b> (Cowork) for architecture, code and tests; <b>GPT-5-mini</b> runs the pipeline; <b>GPT-5.4</b> builds the reference picks
+and rates blind; <b>Gemini</b> was tried first. <b>One place it got it wrong:</b> Claude wrote the reference-pick script as a plain loop,
+so 30 slow calls ran one after another with no progress output, and a 15-minute run looked frozen. I questioned why it was not
+parallel; it now uses the shared parallel runner with a live counter. Every other miss (a wrong data count, a regex that silently
+dropped all questions, the de-duplication order bug, a Gemini free-tier cap) is logged with its fix in <i>docs/ai_usage_log.md</i>.</p>
+</body></html>

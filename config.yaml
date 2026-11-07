@@ -1,0 +1,89 @@
+# Promo Finder configuration. Everything a reviewer might want to change lives here.
+
+llm:
+  # mode: mock -> no API calls; every stage answers with its own rule-based logic.
+  #               Free, offline, and the "heuristics only" baseline for evaluation.
+  #       live -> real models, chosen by `preset` below.
+  mode: mock
+  # preset: auto      -> use whichever key is in .env (OpenAI, then Anthropic, then Gemini).
+  #                      If two vendors' keys exist, the gold set uses the OTHER vendor.
+  #         openai | anthropic | gemini -> force one vendor
+  #         compatible -> any OpenAI-compatible server at base_url (Ollama, OpenRouter,
+  #                       Groq, or an API Kuku provides in the interview)
+  preset: auto
+  base_url: null            # only for preset compatible, e.g. http://localhost:11434/v1
+  temperature: null         # null = provider default (many current models reject custom values)
+  max_retries: 2            # re-ask with the validation error if the JSON is malformed
+  timeout_s: 120
+  concurrency: 4            # parallel calls per stage (free tiers: 2 is gentler)
+  rate_limit_retries: 6     # on "too many requests": wait and retry up to this many times
+  backoff_s: 5              # first wait in seconds; doubles each retry (max 60s)
+  # Per-stage models as "provider:model". Cheap model for volume work, stronger model
+  # for the independent gold set. IDs checked 2026-11-07 (OpenAI via a third-party
+  # pricing page; Anthropic and Gemini via their docs). Confirm with:
+  #   python -m promo_finder.llm.client --check
+  presets:
+    openai:
+      default: openai:gpt-5-mini
+      gold: openai:gpt-5.4
+    anthropic:
+      default: anthropic:claude-haiku-5-5
+      gold: anthropic:claude-sonnet-5-5
+    gemini:
+      default: gemini:gemini-3.5-flash-lite   # free tier; verified 2026-11-07 (3.1 was overloaded)
+      gold: gemini:gemini-3.6-flash           # verified 2026-11-07 (3.8 was overloaded)
+    compatible:
+      default: compatible:llama3.1
+      gold: compatible:llama3.1
+  # One-off overrides on top of the preset, e.g. judge: anthropic:claude-sonnet-5-5
+  models: {}
+  # How long models may "think" before answering: null = model default, or minimal | low |
+  # medium | high. Lower is faster and cheaper; measure the quality effect with eval/.
+  # Per stage also works, e.g.  reasoning: {miner: low, judge: low, gold: null}
+  reasoning: null
+  # If a model is busy (503 / overloaded / rate-limited), try these instead, in order.
+  # Keep the gold chain free of the tool's own models, so the checker stays independent.
+  fallbacks:
+    gemini:gemini-3.5-flash-lite: [gemini:gemini-3.1-flash-lite]   # 3-flash-preview: 404 on this account (2026-11-07)
+    gemini:gemini-3.6-flash: [gemini:gemini-3.8-flash, gemini:gemini-3.5-flash]
+    openai:gpt-5-mini: [openai:gpt-5-nano]
+    openai:gpt-5.4: [openai:gpt-5.4-mini]
+    anthropic:claude-haiku-5-5: [anthropic:claude-sonnet-5-5]
+  # USD per 1M tokens [input, output], for cost estimates in run_meta.json only.
+  # Approximate; a model missing here is reported with cost 0 (unknown).
+  prices:
+    openai:gpt-5-nano: [0.05, 0.40]
+    openai:gpt-5-mini: [0.25, 2.00]
+    openai:gpt-5.4: [2.50, 15.00]
+    anthropic:claude-haiku-5-5: [0.10, 0.50]
+    anthropic:claude-sonnet-5-5: [2.00, 10.00]
+    gemini:gemini-3.1-flash-lite: [0.25, 1.50]
+
+promo:
+  min_duration_s: 20
+  max_duration_s: 60
+  hook_window_s: 3.0        # hook must start within this many seconds of clip start
+  max_segments: 3
+  min_segment_s: 3.0
+  cross_episode_span: 2     # hook in ep N may pair with a cliffhanger in N+1..N+2
+  overlap_dedupe: 0.5       # merge candidates overlapping more than this share
+  cliff_tail_s: 3.5         # max seconds a clip may run past its cliffhanger line
+  moments_per_episode: 6    # hooks and cliffhangers the miner returns per episode
+  candidates_per_episode: 4 # kept per episode after pre-scoring
+  max_candidates: 150       # overall cap before the judge stage (controls cost)
+  max_per_hook: 2           # variety: one great moment can't fill the list
+
+ranking:
+  weights:
+    hook: 0.30
+    cliffhanger: 0.25
+    standalone: 0.20
+    emotion: 0.10
+    funnel: 0.10
+    signal_agreement: 0.05
+  top_k: 20
+  diversity_lambda: 0.3     # MMR: 0 = pure score, higher = more variety in the top list
+
+paths:
+  cache_dir: .cache/llm
+  output_dir: outputs

@@ -1,0 +1,15 @@
+# Kuku's input pack is confidential: never commit it
+data/
+outputs/
+.cache/
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+# gold sets and ratings quote the scripts: keep them local / in the Drive folder
+eval/gold_human.csv
+eval/gold_llm.csv
+eval/gold_llm_all.csv
+eval/human_ratings.csv
+eval/llm_ratings.csv

@@ -1,0 +1,150 @@
+EPISODE NUMBER: 1
+EPISODE LOGLINE: Mara, a hospital night cleaner, is publicly fired by her stepsister on the night a dying billionaire asks for her by name.
+CONTINUITY NOTES: Demo show 'The Night Shift Heiress'. Original fictional content for testing, not Kuku's.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. HALDEN HOSPITAL – NIGHT
+Scene start: 00:00.00
+Scene end: 00:55.00
+
+Actions and dialogue:
+
+**CAMERA**:
+Start: (00:00.00) | End: (00:04.00)
+Medium shot framing the moment.
+
+**ACTION:**
+Start: (00:00.20) | End: (00:03.90)
+Mara mops the marble lobby of Halden Hospital while the night staff ignore her.
+
+**CAMERA**:
+Start: (00:04.00) | End: (00:07.00)
+Close-up framing the moment.
+
+**VIVIENNE (Cold, Amused):**
+Start: (00:04.20) | End: (00:06.90)
+"You missed a spot. You always miss a spot."
+
+**CAMERA**:
+Start: (00:07.00) | End: (00:09.00)
+Medium shot framing the moment.
+
+**MARA (Quiet):**
+Start: (00:07.20) | End: (00:08.90)
+"I'm almost done, Vivienne."
+
+**CAMERA**:
+Start: (00:09.00) | End: (00:12.00)
+Close-up framing the moment.
+
+**ACTION:**
+Start: (00:09.20) | End: (00:11.90)
+Vivienne kicks the bucket over. Dirty water floods across Mara's shoes.
+
+**CAMERA**:
+Start: (00:12.00) | End: (00:14.00)
+Medium shot framing the moment.
+
+**SOUND FX:**
+Start: (00:12.20) | End: (00:13.90)
+A metal bucket clangs and rolls across the marble.
+
+**CAMERA**:
+Start: (00:14.00) | End: (00:18.00)
+Close-up framing the moment.
+
+**VIVIENNE (Gloating):**
+Start: (00:14.20) | End: (00:17.90)
+"Now you are done. You're fired. Security will walk you out."
+
+**CAMERA**:
+Start: (00:18.00) | End: (00:21.00)
+Medium shot framing the moment.
+
+**MARA (Shocked):**
+Start: (00:18.20) | End: (00:20.90)
+"You can't fire me. You don't even work here!"
+
+**CAMERA**:
+Start: (00:21.00) | End: (00:25.00)
+Close-up framing the moment.
+
+**VIVIENNE (Smug):**
+Start: (00:21.20) | End: (00:24.90)
+"My fiance owns this hospital. Tonight, so do I."
+
+**CAMERA**:
+Start: (00:25.00) | End: (00:29.00)
+Medium shot framing the moment.
+
+**ACTION:**
+Start: (00:25.20) | End: (00:28.90)
+Two guards grab Mara by the arms as night staff film on their phones.
+
+**CAMERA**:
+Start: (00:29.00) | End: (00:32.00)
+Close-up framing the moment.
+
+**MARA (Desperate):**
+Start: (00:29.20) | End: (00:31.90)
+"Please, my mother's medical bills..."
+
+**CAMERA**:
+Start: (00:32.00) | End: (00:36.00)
+Medium shot framing the moment.
+
+**VIVIENNE (Cruel):**
+Start: (00:32.20) | End: (00:35.90)
+"Your mother should have raised a daughter who knows her place."
+
+**CAMERA**:
+Start: (00:36.00) | End: (00:39.00)
+Close-up framing the moment.
+
+**ACTION:**
+Start: (00:36.20) | End: (00:38.90)
+The lift doors open. A nurse runs out, breathless, holding a patient chart.
+
+**CAMERA**:
+Start: (00:39.00) | End: (00:42.00)
+Medium shot framing the moment.
+
+**NURSE (Urgent):**
+Start: (00:39.20) | End: (00:41.90)
+"Mara Quinn? Is there a Mara Quinn here?"
+
+**CAMERA**:
+Start: (00:42.00) | End: (00:46.00)
+Close-up framing the moment.
+
+**NURSE (Urgent):**
+Start: (00:42.20) | End: (00:45.90)
+"Mr. Halden is dying. He is asking for you. Only you."
+
+**CAMERA**:
+Start: (00:46.00) | End: (00:49.00)
+Medium shot framing the moment.
+
+**ACTION:**
+Start: (00:46.20) | End: (00:48.90)
+The guards freeze. Vivienne's smile drops. Every phone turns to Mara.
+
+**CAMERA**:
+Start: (00:49.00) | End: (00:52.00)
+Close-up framing the moment.
+
+**VIVIENNE (Stunned):**
+Start: (00:49.20) | End: (00:51.90)
+"Why would Arthur Halden ask for a cleaner?"
+
+**CAMERA**:
+Start: (00:52.00) | End: (00:55.00)
+Medium shot framing the moment.
+
+**SOUND FX:**
+Start: (00:52.20) | End: (00:54.90)
+A low cello note swells and cuts to silence.
+
+--- SCRIPT END ---

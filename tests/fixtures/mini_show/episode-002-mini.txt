@@ -1,0 +1,22 @@
+EPISODE NUMBER: Episode 2
+EPISODE LOGLINE: The brother returns with a secret.
+CONTINUITY NOTES: Synthetic test episode. Not Kuku content.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. BAKERY – NIGHT
+Scene start: 00:00.00
+Scene end: 01:05.50
+
+Actions and dialogue:
+
+**CAMERA**:
+Start: (00:00.00) | End: (01:05.50)
+A single long shot.
+
+**BROTHER (Whispering):**
+Start: (01:02.00) | End: (00:58.00)
+"I am the king."
+
+--- SCRIPT END ---

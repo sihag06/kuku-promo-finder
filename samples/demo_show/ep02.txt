@@ -1,0 +1,134 @@
+EPISODE NUMBER: 2
+EPISODE LOGLINE: At the billionaire's bedside, Mara learns he knew her mother, and Vivienne's fiance arrives with a lawyer to stop a new will.
+CONTINUITY NOTES: Demo show 'The Last Request'. Original fictional content for testing, not Kuku's.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. HALDEN HOSPITAL – NIGHT
+Scene start: 00:00.00
+Scene end: 00:46.00
+
+Actions and dialogue:
+
+**CAMERA**:
+Start: (00:00.00) | End: (00:04.00)
+Medium shot framing the moment.
+
+**ACTION:**
+Start: (00:00.20) | End: (00:03.90)
+Mara steps into a dim private suite. Arthur Halden lies pale beneath the monitors.
+
+**CAMERA**:
+Start: (00:04.00) | End: (00:07.00)
+Close-up framing the moment.
+
+**ARTHUR (Weak, Tender):**
+Start: (00:04.20) | End: (00:06.90)
+"You have her eyes. Your mother's eyes."
+
+**CAMERA**:
+Start: (00:07.00) | End: (00:09.00)
+Medium shot framing the moment.
+
+**MARA (Confused):**
+Start: (00:07.20) | End: (00:08.90)
+"You knew my mother?"
+
+**CAMERA**:
+Start: (00:09.00) | End: (00:13.00)
+Close-up framing the moment.
+
+**ARTHUR (Weak):**
+Start: (00:09.20) | End: (00:12.90)
+"I did more than know her, Mara. I failed her."
+
+**CAMERA**:
+Start: (00:13.00) | End: (00:16.00)
+Medium shot framing the moment.
+
+**ACTION:**
+Start: (00:13.20) | End: (00:15.90)
+Arthur presses a sealed envelope into Mara's trembling hands.
+
+**CAMERA**:
+Start: (00:16.00) | End: (00:20.00)
+Close-up framing the moment.
+
+**ARTHUR (Urgent):**
+Start: (00:16.20) | End: (00:19.90)
+"Do not open this until the lawyer arrives. Promise me."
+
+**CAMERA**:
+Start: (00:20.00) | End: (00:21.00)
+Medium shot framing the moment.
+
+**SFX:**
+Start: (00:20.20) | End: (00:20.90)
+The suite door bangs open.
+
+**CAMERA**:
+Start: (00:21.00) | End: (00:24.00)
+Close-up framing the moment.
+
+**ACTION:**
+Start: (00:21.20) | End: (00:23.90)
+Damien Cross, Vivienne's fiance, strides in with a lawyer and two guards.
+
+**CAMERA**:
+Start: (00:24.00) | End: (00:27.00)
+Medium shot framing the moment.
+
+**DAMIEN (Furious):**
+Start: (00:24.20) | End: (00:26.90)
+"Get the cleaner away from him. Now!"
+
+**CAMERA**:
+Start: (00:27.00) | End: (00:30.00)
+Close-up framing the moment.
+
+**ARTHUR (Gasping):**
+Start: (00:27.20) | End: (00:29.90)
+"Damien... you will not touch my will."
+
+**CAMERA**:
+Start: (00:30.00) | End: (00:34.00)
+Medium shot framing the moment.
+
+**DAMIEN (Cold):**
+Start: (00:30.20) | End: (00:33.90)
+"Your will is already signed. Everything goes to me."
+
+**CAMERA**:
+Start: (00:34.00) | End: (00:38.00)
+Close-up framing the moment.
+
+**LAWYER (Nervous):**
+Start: (00:34.20) | End: (00:37.90)
+"Sir, there is a problem. He changed it an hour ago."
+
+**CAMERA**:
+Start: (00:38.00) | End: (00:40.00)
+Medium shot framing the moment.
+
+**DAMIEN (Dangerous):**
+Start: (00:38.20) | End: (00:39.90)
+"Changed it to whom?"
+
+**CAMERA**:
+Start: (00:40.00) | End: (00:43.00)
+Close-up framing the moment.
+
+**ACTION:**
+Start: (00:40.20) | End: (00:42.90)
+Every eye in the room turns slowly to the envelope in Mara's hands.
+
+**CAMERA**:
+Start: (00:43.00) | End: (00:46.00)
+Medium shot framing the moment.
+
+**SOUND FX:**
+Start: (00:43.20) | End: (00:45.90)
+The heart monitor flatlines into a single long tone.
+
+--- SCRIPT END ---
