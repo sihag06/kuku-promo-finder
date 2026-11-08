@@ -117,7 +117,6 @@ prompts/                        every prompt, as plain files
 eval/                           gold sets, LLM gold, LLM rater, evaluation report
 samples/                        fictional demo show (also the "new show" rehearsal)
 tests/                          105 tests, all offline
-docs/ai_usage_log.md            AI tools used and every place they got it wrong
 ```
 
 ## Known limits
