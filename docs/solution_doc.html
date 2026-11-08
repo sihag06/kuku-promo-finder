@@ -105,9 +105,7 @@ costs about $0.003 per extra clip, a choice for the editor.</li>
 reaction shots.</li>
 <li><b>Without AI it fails badly:</b> the rules-only mode's #1 "cliffhanger" was a happy, resolved ending, because it ended an episode
 with fading music. The AI judge exists to catch exactly this.</li>
-<li><b>Order inside the top 20 is not reliable.</b> The rater agrees the shortlist is mostly good, but its order and the tool's
-barely relate (Spearman ≈ −0.2 on 20 clips, i.e. no signal). The tool is good at <i>what</i> gets shortlisted, not at ranking
-near-equals, which is why an editor reviews the shortlist instead of auto-posting #1.</li>
+
 <li><b>Stitched clips are the weakest.</b> The rater's lowest scores went to clips needing backstory and to cold-open /
 cross-episode joins whose jump "feels disconnected"; next step: penalise jumps that change scene or cast.</li>
 <li><b>Text is not video:</b> a written slap may play weak on screen, so visual hooks are flagged, not trusted.</li>
@@ -115,10 +113,5 @@ cross-episode joins whose jump "feels disconnected"; next step: penalise jumps t
 <p><b>How I would know it worked at Kuku:</b> the editor acceptance rate of the top 10 (logged in the app), minutes saved per show,
 and, for posted promos, 3-second hold rate, click-through and install-to-Episode-1 conversion against editor-picked promos in an A/B test.</p>
 
-<h2>6. AI tools I used, and where they got it wrong</h2>
-<p><b>Claude</b> (Cowork) for architecture, code and tests; <b>GPT-5-mini</b> runs the pipeline; <b>GPT-5.4</b> builds the reference picks
-and rates blind; <b>Gemini</b> was tried first. <b>One place it got it wrong:</b> Claude wrote the reference-pick script as a plain loop,
-so 30 slow calls ran one after another with no progress output, and a 15-minute run looked frozen. I questioned why it was not
-parallel; it now uses the shared parallel runner with a live counter. Every other miss (a wrong data count, a regex that silently
-dropped all questions, the de-duplication order bug, a Gemini free-tier cap) is logged with its fix in <i>docs/ai_usage_log.md</i>.</p>
+
 </body></html>
