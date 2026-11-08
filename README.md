@@ -5,6 +5,7 @@ the start and end of every segment, the hook, the cliffhanger, one line on why i
 ranked posting order. Built for the Kuku AI Generalist assignment (Problem 1).
 
 - **Live app:** [kuku-promo-finder.streamlit.app](https://kuku-promo-finder-hfjphhfrtjvbvvfcq9uev8.streamlit.app/)
+- **Walkthrough video (3 min):** [Google Drive](https://drive.google.com/file/d/13Dw0ZphtwPwrmaa-AQfd5iqCKZMn5wh4/view?usp=sharing)
 - **Solution doc (2 pages):** `docs/solution_doc.pdf`
 - **Raw outputs from the full run:** [Google Drive](https://drive.google.com/file/d/1-LQm_GJ-cK1uMJ6OKX9BCN7Ts5bDO3WP/view?usp=sharing)
 
