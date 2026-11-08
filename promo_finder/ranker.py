@@ -29,9 +29,14 @@ LABELS = {"hook": "hook", "cliffhanger": "cliffhanger", "standalone": "works col
           "emotion": "emotional charge", "funnel": "early-episode funnel", "signal_agreement": "rule signals agree"}
 
 
-def funnel(p: Promo, n_episodes: int) -> float:
+def funnel(p: Promo, episode_numbers: list[int]) -> float:
+    """1.0 for a promo from the earliest episode in the input, 0.0 for the latest.
+    Uses the episodes actually present (an upload may be Episodes 28-29 only), clamped to 0-1."""
+    lo, hi = min(episode_numbers), max(episode_numbers)
     first = min(s.episode for s in p.segments)
-    return round(1.0 - (first - 1) / max(n_episodes - 1, 1), 3)
+    if hi == lo:
+        return 1.0
+    return round(min(1.0, max(0.0, 1.0 - (first - lo) / (hi - lo))), 3)
 
 
 def apply_judgement(p: Promo, j: Judgement, show: Show, sigs: dict[int, EpisodeSignals],
@@ -44,7 +49,7 @@ def apply_judgement(p: Promo, j: Judgement, show: Show, sigs: dict[int, EpisodeS
     standalone = min(s01(j.standalone_score), max(0.0, 1.0 - CONFUSION_STEP * max(0, len(j.confusions) - 1)))
     sc = Scores(hook=s01(j.hook_score), cliffhanger=s01(j.cliffhanger_score),
                 standalone=round(standalone, 3), emotion=s01(j.emotion_score),
-                funnel=funnel(p, len(show.episodes)), signal_agreement=round(agree, 3),
+                funnel=funnel(p, [e.number for e in show.episodes]), signal_agreement=round(agree, 3),
                 spoiler_penalty=SPOILER_PENALTY[j.spoiler_risk], safety_penalty=SAFETY_PENALTY[j.ad_safety])
     w = cfg.weights
     penalties = sc.spoiler_penalty + sc.safety_penalty

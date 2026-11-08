@@ -161,3 +161,14 @@ def test_quality_rank_ignores_the_early_episode_preference(show):
     early.scores.total, late.scores.total = 0.90, 0.80  # funnel bonus lifts the weaker early promo
     out = {p.id: p for p in rank([early, late], RankingConfig(weights=W))}
     assert out["EARLY"].rank == 1 and out["LATE"].quality_rank == 1  # post early first, but late is better
+
+
+def test_funnel_uses_the_episodes_actually_uploaded():
+    """Regression: an upload of Episodes 28-29 gave funnel = -27 (formula assumed episode 1 start)."""
+    from promo_finder.ranker import funnel
+    p28 = Promo(id="a", template="continuous", hook_event="E028-0001", cliff_event="E028-0002",
+                segments=[Segment(episode=28, start=0, end=30, first_event="", last_event="")])
+    p29 = p28.model_copy(update={"segments": [Segment(episode=29, start=0, end=30, first_event="", last_event="")]})
+    assert funnel(p28, [28, 29]) == 1.0 and funnel(p29, [28, 29]) == 0.0
+    assert funnel(p28, [28]) == 1.0                       # single episode: no preference
+    assert funnel(p28, list(range(1, 51))) == pytest.approx(1 - 27 / 49, abs=1e-3)  # full show unchanged
